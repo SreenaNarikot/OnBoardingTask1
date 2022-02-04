@@ -1,6 +1,7 @@
 ﻿using MarsQA_1.Helpers;
 using MarsQA_1.Pages;
 using MarsQA_1.SpecflowPages.Pages;
+using NUnit.Framework;
 using OpenQA.Selenium.Chrome;
 using System;
 using System.Collections.Generic;
@@ -14,6 +15,9 @@ namespace MarsQA_1.Feature
     [Binding]
     class Login : Driver
     {
+        ProfileRecord profileRecord = new ProfileRecord();
+        HomePage homePage = new HomePage();
+
         [Given(@": I logged into the URL succsfully")]
         public void GivenILoggedIntoTheURLuccsfully()
         {
@@ -23,25 +27,31 @@ namespace MarsQA_1.Feature
             Driver.TurnOnWait();
             Driver.NavigateUrl();
             SignIn.Login();
-            //test
         }
 
         [Given(@": I navigate to profilepage")]
         public void GivenINavigateToProfilepage()
         {
-            HomePage homePage = new HomePage();
+            
+            homePage.GoToProfile(driver);
         }
 
         [When(@": I add new profile record")]
         public void WhenIAddNewProfileRecord()
         {
-            //throw new PendingStepException();
+           
+            profileRecord.createprofilerecord(driver);
+
         }
 
         [Then(@":The profile record should be added succsfully")]
         public void ThenTheProfileRecordShouldBeAddedSuccsfully()
         {
-            //throw new PendingStepException();
+           
+            string language = profileRecord.getlanguage(driver);
+            Assert.That(language == "English", "Actual language and Expected do not match");
+            string level = profileRecord.getlevel(driver);
+            Assert.That(level == "Conversational", "Actual level and Expected level do not match");
         }
     }
 }
