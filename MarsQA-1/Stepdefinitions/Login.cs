@@ -14,10 +14,8 @@ using TechTalk.SpecFlow;
 namespace MarsQA_1.Feature 
 {
     [Binding]
-    class Login : Driver
+    class  Login : Driver
     {
-        ProfileRecord profileRecord = new ProfileRecord();
-        HomePage homePage = new HomePage();
 
         [Given(@"I am on my Profile Page")]
         public void GivenIAmOnMyProfilePage()
