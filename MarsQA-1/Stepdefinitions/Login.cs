@@ -32,16 +32,39 @@ namespace MarsQA_1.Feature
             profileRecord.Createlanguagerecord(driver);
         }
 
+        [When(@":I Click  Add new Skills with valid credentials")]
+        public void WhenIClickAddNewSkillsWithValidCredentials()
+        {
+            ProfileRecord profileRecord = new ProfileRecord();
+            profileRecord.Createskillsrecord(driver);
+        }
+
+        [When(@": I Click Add new Education with valid credentials")]
+        public void WhenIClickAddNewEducationWithValidCredentials()
+        {
+            ProfileRecord profileRecord = new ProfileRecord();
+            profileRecord.Createeducationtab(driver);
+        }
+
+        [When(@":I Click Andd new Certifications with valid credentials")]
+        public void WhenIClickAnddNewCertificationsWithValidCredentials()
+        {
+            ProfileRecord profileRecord = new ProfileRecord();
+            profileRecord.Createcertification(driver);
+        }
+
         [Then(@"Profile page is created successfully")]
         public void ThenProfilePageIsCreatedSuccessfully()
         {
+            //Assertions to check the language created
             ProfileRecord profileRecord = new ProfileRecord();
             string language = profileRecord.Getlanguage(driver);
             Assert.That(language == "English", "Actual language and Expected do not match");
             string level = profileRecord.Getlevel(driver);
             Assert.That(level == "Conversational", "Actual level and Expected level do not match");
-   
+
         }
+
 
     }
 }
