@@ -130,5 +130,23 @@ namespace MarsQA_1.SpecflowPages.Pages
             IWebElement skilllevel = driver.FindElement(By.XPath("//*[@id='account-profile-section']/div/section[2]/div/div/div/div[3]/form/div[3]/div/div[2]/div/table/tbody/tr/td[2]"));
             return skilllevel.Text;
         }
+        public string Getcertficate(IWebDriver driver)
+        {
+            IWebElement certificationTab = driver.FindElement(By.XPath("//*[@id='account-profile-section']/div/section[2]/div/div/div/div[3]/form/div[1]/a[4]"));
+            certificationTab.Click();
+            IWebElement certificate = driver.FindElement(By.XPath("//*[@id='account-profile-section']/div/section[2]/div/div/div/div[3]/form/div[5]/div[1]/div[2]/div/table/tbody/tr/td[1]"));
+            return certificate.Text;
+        }
+        public string GetCertificatefrom(IWebDriver driver)
+        {
+            IWebElement from = driver.FindElement(By.XPath("//*[@id='account-profile-section']/div/section[2]/div/div/div/div[3]/form/div[5]/div[1]/div[2]/div/table/tbody/tr/td[2]"));
+            return from.Text;
+        }
+        public string GetYearofthecertificate(IWebDriver driver)
+        {
+            IWebElement year = driver.FindElement(By.XPath("//*[@id='account-profile-section']/div/section[2]/div/div/div/div[3]/form/div[5]/div[1]/div[2]/div/table/tbody/tr/td[3]"));
+            return year.Text;
+        }
+       
     }
 }

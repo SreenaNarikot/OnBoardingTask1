@@ -1,4 +1,5 @@
 ﻿using MarsQA_1.Helpers;
+using MarsQA_1.SpecflowPages.Utils;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Support.UI;
 using System;
@@ -14,10 +15,10 @@ namespace MarsQA_1.SpecflowPages.Pages
     {
         public void GoToProfile(IWebDriver driver)
         {
-            Thread.Sleep(6000);
+
             //Identify the element profile tab and click on it
+            Wait.WaitToBeClickable(driver, "//*[@id='account-profile-section']/div/section[1]/div/a[2]", 3);
             IWebElement profile = driver.FindElement(By.XPath("//*[@id='account-profile-section']/div/section[1]/div/a[2]"));
-            Thread.Sleep(3000);
             profile.Click();                                   
         }
 

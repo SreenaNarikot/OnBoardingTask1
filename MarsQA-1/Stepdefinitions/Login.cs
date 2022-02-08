@@ -21,10 +21,9 @@ namespace MarsQA_1.Feature
         [Given(@"I am on my Profile Page")]
         public void GivenIAmOnMyProfilePage()
         {
-                Thread.Sleep(3000);
                 HomePage homePage = new HomePage();
                 homePage.GoToProfile(driver);
-            Thread.Sleep(3000);
+            
         }
 
         [When(@"I Click Addnew Language with valid details")]
@@ -71,6 +70,13 @@ namespace MarsQA_1.Feature
             string actualskilllevel = profileRecord.GetSkillLevel(driver);
             Assert.That(actualskilllevel == "Intermediate", "Actual Skill and Expected skill level do not match");
 
+            //Assertions to verify  certifications
+            string actualcertificate = profileRecord.Getcertficate(driver);
+            Assert.That(actualcertificate == "Advanced Diploma" , "Actual Certificate  and Expected Certificate do not match");
+            string  from = profileRecord.GetCertificatefrom(driver);
+            Assert.That(from == "TPE", "Actual certficate from and expected do not match");
+            string year = profileRecord.GetYearofthecertificate(driver);
+            Assert.That(year == "2010", "Actual Year and expected year do not match");
         }
 
 
