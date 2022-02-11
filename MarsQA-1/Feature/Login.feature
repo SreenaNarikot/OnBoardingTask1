@@ -1,13 +1,11 @@
-﻿Feature: As a seller I would like to add profile detaila so that people
-         seeking for some skills can look in to my details
+﻿Feature: Login
+	In order to avoid silly mistakes
+	As a math idiot
+	I want to be told the sum of two numbers
 
-Scenario:: Profile creation
-	Given I am on my Profile Page
-	When I Click Addnew Language with valid details
-	And  :I Click  Add new Skills with valid credentials
-	And : I Click Add new Education with valid credentials
-	And  :I Click Andd new Certifications with valid credentials
-	Then Profile page is created successfully
+@mytag
+Scenario: Login to website
+	Given I login to the website
 
 
  
