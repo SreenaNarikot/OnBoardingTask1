@@ -26,6 +26,9 @@ namespace MarsQA_1.Stepdefinitions
             ProfileRecord profileRecord = new ProfileRecord();
             profileRecord.Createlanguagerecord(driver,language,level);
         }
+        
+       
+
 
         [Then(@": The Language details with '([^']*)' and '([^']*)' will be created successfully\.")]
         public void ThenTheLanguageDetailsWithAndWillBeCreatedSuccessfully_(string language, string level)
@@ -38,6 +41,7 @@ namespace MarsQA_1.Stepdefinitions
             //Assert.That(actuallevel == level, "Actual level and Expected level do not match");
             Assert.Pass();
         }
+
         [Then(@":Record must have been created with (.*) records successfully")]
         public void ThenRecordMustHaveBeenCreatedWithRecordsSuccessfully(int p0)
         {
@@ -47,6 +51,9 @@ namespace MarsQA_1.Stepdefinitions
 
         }
 
+
+
+
         [When(@":I click update the record with  new '([^']*)' and '([^']*)'")]
         public void WhenIClickUpdateTheRecordWithNewAnd(string language, string level)
         {
@@ -54,13 +61,40 @@ namespace MarsQA_1.Stepdefinitions
             profileRecord.EditTheLanguage(driver,language,level);
            
         }
+        
 
-        [Then(@": the Record should have been edited successfully \.")]
-        public void ThenTheRecordShouldHaveBeenEditedSuccessfully_()
+        [Then(@": the Record should have been edited successfully with  '([^']*)' and '([^']*)' \.")]
+        public void ThenTheRecordShouldHaveBeenEditedSuccessfullyWithAnd_(string language, string level)
         {
             
+            Console.WriteLine("Record edited");
+        }
+       
+        [Then(@": the record is updated with new details '([^']*)' ,'([^']*)'\.")]
+        public void ThenTheRecordIsUpdatedWithNewDetails_(string language, string level)
+        {
+            ProfileRecord profileRecord = new ProfileRecord();
+            string editedlanguage = profileRecord.GettheEditedlanguagetext(driver, language);
+            Assert.AreEqual(editedlanguage, language);
+            string actuallevel = profileRecord.GettheEditedleveltext(driver, level);
+            Assert.AreEqual(actuallevel, level);
+        }
+        
+        [When(@": I click delete button")]
+        public void WhenIClickDeleteButton()
+        {
+            ProfileRecord profileRecord = new ProfileRecord();
+            profileRecord.DeleteRecord(driver);
         }
 
+        [Then(@": The record will be deleted")] 
+        public void ThenTheRecordWillBeDeleted()
+        {
+            ProfileRecord profileRecord = new ProfileRecord();
+            profileRecord.Getthedeleted(driver);
+            //profileRecord.Getthevalues(driver);
+        }
 
+        
     }
 }

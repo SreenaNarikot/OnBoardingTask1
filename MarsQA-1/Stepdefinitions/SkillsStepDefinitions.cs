@@ -20,7 +20,7 @@ namespace MarsQA_1.StepDefinitions
         public void WhenIClickNewSkillsWithValidAndDetails(string skill, string level)
         {
             ProfileRecord profileRecord = new ProfileRecord();
-            profileRecord.Createskillsrecord(driver,skill,level);
+            profileRecord.Createskillsrecord(driver, skill, level);
         }
 
         [Then(@":The Skills details with '([^']*)' and '([^']*)' will be created successfully\.")]
@@ -34,5 +34,21 @@ namespace MarsQA_1.StepDefinitions
             //Assert.That(actualskilllevel == level, "Actual Skill and Expected skill level do not match");
             Assert.Pass();
         }
+
+
+        [When(@": I Click on skills tab")]
+        public void WhenIClickOnSkillsTab()
+        {
+            HomePage homepage = new HomePage();
+            homepage.GoToSkillstab(driver);
+        }
+        [Then(@":  It should list all the records\.")]
+        public void ThenItShouldListAllTheRecords_()
+        {
+            ProfileRecord profilerecord = new ProfileRecord();
+            profilerecord.Readskillsrecord(driver);
+        }
+
+      
     }
 }

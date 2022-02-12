@@ -15,7 +15,6 @@ Examples:
 
 Scenario Outline: 2.Reading the record created for Language
 Given : I am on my Profile Page
-When : I Click Language
 Then :Record must have been created with <count> records successfully
 Examples: 
 | count |
@@ -24,9 +23,21 @@ Examples:
 Scenario Outline: 3.Editing languges that has been created
 Given : I am on my Profile Page
 When :I click update the record with  new '<language>' and '<level>'
-Then : the Record should have been edited successfully .
+Then : the Record should have been edited successfully with  '<language>' and '<level>' .
 Examples: 
 | language | level  |
-| Java     | Fluent |
-| Python   | Basic  |
+| Hindi     | Fluent |
+| Spanish   | Basic  |
+
+Scenario Outline: 4.Reading the language that has been edited
+Given : I am on my Profile Page
+Then : the record is updated with new details '<language>' ,'<level>'.
+Examples: 
+| language | level  |
+| Spanish  | Basic  |
+
+Scenario Outline: 5.Deleting a record from the languagetab
+Given : I am on my Profile Page
+When : I click delete button
+Then : The record will be deleted
 

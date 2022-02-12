@@ -12,6 +12,14 @@ Examples:
 | Graphics | Beginner |
 | Python   | Expert   |
 
+Scenario: Reading the skills created
+Given : I am on my Profile Page
+When  : I Click on skills tab
+Then :  It should list all the records.
+
+
+
+
 
 
 
