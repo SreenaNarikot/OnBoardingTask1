@@ -150,7 +150,7 @@ this.ScenarioInitialize(scenarioInfo);
 testRunner.Given(": I am on my Profile Page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
 #line 18
-testRunner.Then(string.Format(":Record must have been created with {0} records successfully", count), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+testRunner.Then(string.Format(": \'{0}\' Records must have been created successfully", count), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             }
             this.ScenarioCleanup();
@@ -167,7 +167,7 @@ testRunner.Then(string.Format(":Record must have been created with {0} records s
             argumentsOfScenario.Add("language", language);
             argumentsOfScenario.Add("level", level);
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("3.Editing languges that has been created", null, tagsOfScenario, argumentsOfScenario, this._featureTags);
-#line 23
+#line 25
 this.ScenarioInitialize(scenarioInfo);
 #line hidden
             bool isScenarioIgnored = default(bool);
@@ -187,13 +187,13 @@ this.ScenarioInitialize(scenarioInfo);
             else
             {
                 this.ScenarioStart();
-#line 24
+#line 26
 testRunner.Given(": I am on my Profile Page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
-#line 25
+#line 27
 testRunner.When(string.Format(":I click update the record with  new \'{0}\' and \'{1}\'", language, level), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
-#line 26
+#line 28
 testRunner.Then(string.Format(": the Record should have been edited successfully with  \'{0}\' and \'{1}\' .", language, level), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             }
@@ -210,7 +210,7 @@ testRunner.Then(string.Format(": the Record should have been edited successfully
             argumentsOfScenario.Add("language", language);
             argumentsOfScenario.Add("level", level);
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("4.Reading the language that has been edited", null, tagsOfScenario, argumentsOfScenario, this._featureTags);
-#line 32
+#line 34
 this.ScenarioInitialize(scenarioInfo);
 #line hidden
             bool isScenarioIgnored = default(bool);
@@ -230,10 +230,10 @@ this.ScenarioInitialize(scenarioInfo);
             else
             {
                 this.ScenarioStart();
-#line 33
+#line 35
 testRunner.Given(": I am on my Profile Page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
-#line 34
+#line 36
 testRunner.Then(string.Format(": the record is updated with new details \'{0}\' ,\'{1}\'.", language, level), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             }
@@ -242,12 +242,14 @@ testRunner.Then(string.Format(": the record is updated with new details \'{0}\' 
         
         [NUnit.Framework.TestAttribute()]
         [NUnit.Framework.DescriptionAttribute("5.Deleting a record from the languagetab")]
-        public virtual void _5_DeletingARecordFromTheLanguagetab()
+        [NUnit.Framework.TestCaseAttribute("spanish", null)]
+        public virtual void _5_DeletingARecordFromTheLanguagetab(string language, string[] exampleTags)
         {
-            string[] tagsOfScenario = ((string[])(null));
+            string[] tagsOfScenario = exampleTags;
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
+            argumentsOfScenario.Add("language", language);
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("5.Deleting a record from the languagetab", null, tagsOfScenario, argumentsOfScenario, this._featureTags);
-#line 39
+#line 41
 this.ScenarioInitialize(scenarioInfo);
 #line hidden
             bool isScenarioIgnored = default(bool);
@@ -267,14 +269,14 @@ this.ScenarioInitialize(scenarioInfo);
             else
             {
                 this.ScenarioStart();
-#line 40
+#line 42
 testRunner.Given(": I am on my Profile Page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
-#line 41
+#line 43
 testRunner.When(": I click delete button", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
-#line 42
-testRunner.Then(": The record will be deleted", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line 44
+testRunner.Then(string.Format(": The record \'{0}\'will be deleted", language), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             }
             this.ScenarioCleanup();

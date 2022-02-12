@@ -37,13 +37,11 @@ namespace MarsQA_1.SpecflowPages.Pages
         //Scenario2 for Languagetab
         public int ReadLanguagerecord(IWebDriver driver)
         {
-            //IWebElement actualLanguage = driver.FindElement(By.XPath("//*[@id='account-profile-section']/div/section[2]/div/div/div/div[3]/form/div[2]/div/div[2]/div/table/tbody/tr/td[1]"));
             IList<IWebElement> actualLanguages = driver.FindElements(By.XPath("//*[@id='account-profile-section']/div/section[2]/div/div/div/div[3]/form/div[2]/div/div[2]/div/table/tbody"));
-            Console.WriteLine(actualLanguages.Count+" Records Created");
             foreach (IWebElement aPart in actualLanguages)
             {
                 Console.WriteLine(aPart.Text);
-               
+                
             }
             int count = actualLanguages.Count;
             return count;
@@ -98,24 +96,16 @@ namespace MarsQA_1.SpecflowPages.Pages
             IWebElement deletebutton = driver.FindElement(By.XPath("//*[@id='account-profile-section']/div/section[2]/div/div/div/div[3]/form/div[2]/div/div[2]/div/table/tbody[1]/tr/td[3]/span[2]/i"));
             deletebutton.Click();
         }
-        public void Getthedeleted(IWebDriver driver)
+        public string Getthedeleted(IWebDriver driver)
         {
-            
-            Console.WriteLine("One Record has been deleted");
+            //Wait.WaitToBeClickable(driver, "//*[@id=,account-profile-section']/div/section[2]/div/div/div/div[3]/form/div[2]/div/div[2]/div/table/tbody/tr/td[1]", 30);
+            //IWebElement deletedrecord = driver.FindElement(By.XPath("//*[@id=,account-profile-section']/div/section[2]/div/div/div/div[3]/form/div[2]/div/div[2]/div/table/tbody/tr/td[1]"));
+            IWebElement deletedrecord = driver.FindElement(By.XPath("//*[@id='account-profile-section']/div/section[2]/div/div/div/div[3]/form/div[2]/div/div[2]/div/table/tbody/tr/td[1]"));
+            string deletedrecordtext = deletedrecord.Text;               
+            return deletedrecordtext;                                    
 
         }
-        //public void Getthevalues(IWebDriver driver)
-        //{
-        //    IList<IWebElement> myvalues = driver.FindElements(By.XPath("//table[@class='ui fixed table']/tbody[1]"));
-        //    Console.WriteLine(myvalues.Count());
-        //    foreach (IWebElement aPart in myvalues)
-        //    {
-        //        Console.WriteLine(aPart.Text());
-        //    }
-
-        //}
-
-            //Scnario 1 of the skills record
+        //Scnario 1 of the skills record
         public void Createskillsrecord(IWebDriver driver, string skill, string level)
         {
             //Identify the Skills tab and click on it
@@ -143,6 +133,7 @@ namespace MarsQA_1.SpecflowPages.Pages
             IList<IWebElement> rows = driver.FindElements(By.XPath("//*[@id='account-profile-section']/div/section[2]/div/div/div/div[3]/form/div[3]/div/div[2]/div/table/tbody"));
             foreach (IWebElement apart in rows)
             {
+
                 Console.WriteLine(apart.Text);
             }
            
