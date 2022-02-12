@@ -33,24 +33,17 @@ namespace MarsQA_1.Stepdefinitions
         [Then(@": The Language details with '([^']*)' and '([^']*)' will be created successfully\.")]
         public void ThenTheLanguageDetailsWithAndWillBeCreatedSuccessfully_(string language, string level)
         {
-            //Assertions to verify the language created
-            ProfileRecord profileRecord = new ProfileRecord();
-            string actuallanguage = profileRecord.GetLanguage(driver);
-            //Assert.That(actuallanguage == language, "Actual language and Expected do not match");
-            string actuallevel = profileRecord.GetLanguageLevel(driver);
-            //Assert.That(actuallevel == level, "Actual level and Expected level do not match");
-            Assert.Pass();
+             Assert.Pass();
         }
 
-        [Then(@":Record must have been created with (.*) records successfully")]
-        public void ThenRecordMustHaveBeenCreatedWithRecordsSuccessfully(int p0)
+        [Then(@": '([^']*)' Records must have been created successfully")]
+        public void ThenRecordsMustHaveBeenCreatedSuccessfully(int p0)
         {
             ProfileRecord profileRecord = new ProfileRecord();
             int actualcount = profileRecord.ReadLanguagerecord(driver);
             Assert.AreEqual(actualcount, p0);
 
         }
-
 
 
 
@@ -87,12 +80,13 @@ namespace MarsQA_1.Stepdefinitions
             profileRecord.DeleteRecord(driver);
         }
 
-        [Then(@": The record will be deleted")] 
-        public void ThenTheRecordWillBeDeleted()
+        [Then(@": The record '([^']*)'will be deleted")]
+        public void ThenTheRecordWillBeDeleted(string language)
         {
             ProfileRecord profileRecord = new ProfileRecord();
-            profileRecord.Getthedeleted(driver);
-            //profileRecord.Getthevalues(driver);
+            string record = profileRecord.Getthedeleted(driver);
+            Assert.That(record!= language,"Record not deleted");
+
         }
 
         
