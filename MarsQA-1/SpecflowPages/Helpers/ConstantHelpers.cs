@@ -12,12 +12,12 @@ namespace MarsQA_1.Helpers
         public static string Url = "http://localhost:5000";
 
         //ScreenshotPath
-        public static string ScreenshotPath = "";
+        public static string ScreenshotPath = @"C:\MVPProject\OnBoardingTask1\MarsQA-1\TestReports\Screenshots";
 
         //ExtentReportsPath
-        public static string ReportsPath = "";
+        public static string ReportsPath = @"C:\MVPProject\OnBoardingTask1\MarsQA-1\TestReports\Screenshots";
 
         //ReportXML Path
-        public static string ReportXMLPath = "";
+        public static string ReportXMLPath = @"C:\MVPProject\OnBoardingTask1\MarsQA-1\TestReports\Screenshots";
     }
 }
