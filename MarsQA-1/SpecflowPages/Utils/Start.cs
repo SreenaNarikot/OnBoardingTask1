@@ -14,6 +14,18 @@ namespace MarsQA_1.Utils
     [Binding]
     public class Start : Driver
     {
+        [BeforeTestRun]
+        public static void BeforeTestRun()
+        {
+            ExtentReports();
+        }
+
+        [BeforeFeature]
+        public static void BeforeFeature(FeatureContext context)
+        {
+            test = Extent.StartTest(context.FeatureInfo.Title);
+        }
+
 
         [BeforeScenario]
         public void Setup()
@@ -25,13 +37,16 @@ namespace MarsQA_1.Utils
             SignIn.SigninStep();
         }
 
+        
+
         [AfterScenario]
         public void TearDown()
         {
-           
+ 
             //Screenshot
             string img = SaveScreenShotClass.SaveScreenshot(Driver.driver, "Report");
             test.Log(LogStatus.Info, "Snapshot below: " + test.AddScreenCapture(img));
+
             //Close the browser
             Close();
              
